@@ -1,0 +1,17 @@
+name: 'set environment'
+description: 'set environment'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/main.sh
+      shell: bash
