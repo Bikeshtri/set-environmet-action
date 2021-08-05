@@ -13,5 +13,6 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - run: chmod 777 ${{ github.action_path }}/main.sh
     - run: ${{ github.action_path }}/main.sh
       shell: bash
